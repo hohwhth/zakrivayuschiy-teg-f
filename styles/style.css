@@ -2,7 +2,9 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-family: var(--font-primary), sans-serif;
-  font-variation-settings: 'wght' var(--font-wght-bold), 'wdth' var(--font-wdth-content);
+  font-variation-settings:
+    "wght" var(--font-wght-bold),
+    "wdth" var(--font-wdth-content);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -76,9 +78,9 @@
   -webkit-text-stroke: 0.2px var(--main-color);
   text-shadow:
     -1px -1px 0 var(--main-color),
-     1px -1px 0 var(--main-color),
-    -1px  1px 0 var(--main-color),
-     1px  1px 0 var(--main-color);
+    1px -1px 0 var(--main-color),
+    -1px 1px 0 var(--main-color),
+    1px 1px 0 var(--main-color);
   opacity: 0.5;
 }
 
@@ -155,7 +157,6 @@
   font-size: var(--font-size-button);
 }
 
-
 .save-button {
   position: relative;
   font-family: var(--font-accent);
@@ -199,7 +200,7 @@
   transform: scaleX(1);
 }
 
-.button__text, 
+.button__text,
 .save__button-text {
   position: relative;
   z-index: 1;
@@ -252,7 +253,6 @@
   box-shadow: 2px 2px 0 var(--accent-color);
 }
 
-
 .dialog__icon {
   width: 39px;
   height: 39px;
@@ -287,8 +287,7 @@
 }
 
 .card:nth-of-type(8) .card__image {
-  filter:
-    hue-rotate(90deg) brightness(120%) contrast(50%) blur(2px); 
+  filter: hue-rotate(90deg) brightness(120%) contrast(50%) blur(2px);
 }
 
 .sparks {
