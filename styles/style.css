@@ -21,7 +21,6 @@
   align-items: center;
   background-color: var(--card-bg-color);
   text-transform: uppercase;
-  height: var(--content-height);
   width: var(--content-width);
   margin-inline: auto;
   font-family: var(--font-accent);
@@ -29,6 +28,7 @@
   outline: var(--card-outline);
   margin-block-start: 100px;
   margin-block-end: 98px;
+  padding-block: 130px;
 }
 
 .content {
@@ -46,7 +46,7 @@
 }
 
 .card {
-  width: var(--content-width);
+  inline-size: var(--content-width);
   margin-inline: auto;
   background-color: var(--card-bg-color);
   border: var(--card-outline);
@@ -54,6 +54,7 @@
 
 .card__title {
   font-size: var(--font-size-h2);
+  font-variation-settings: "wght" 715;
   display: inline-block;
   margin-block: 5px;
   margin-inline: 10px;
@@ -96,10 +97,12 @@
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
+  object-position: center;
 }
 
 .card__content {
   font-size: var(--font-size-content);
+  font-variation-settings: "wght" 410;
   padding: 25px;
   display: flex;
   flex-direction: column;
@@ -135,45 +138,42 @@
   border-color: var(--accent-color);
 }
 
-.card__like-button {
-  position: relative;
-  width: 130px;
-  height: 38px;
-  border: var(--card-outline);
-  background-color: transparent;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: box-shadow 0.3s ease;
-}
-
-.card__like-button:focus-visible {
-  outline: none;
-  box-shadow: 2px 2px 0 var(--accent-color);
-}
-
 .button__text {
   font-family: var(--font-accent);
   font-size: var(--font-size-button);
 }
 
-.save-button {
+.button {
   position: relative;
-  font-family: var(--font-accent);
+  cursor: pointer;
   font-size: 14px;
+  font-family: var(--font-accent);
   background-color: var(--card-bg-color);
   border: var(--card-outline);
-  width: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: box-shadow 0.3s ease;
+}
+
+.card__like-button {
+  width: 130px;
+  height: 38px;
+  background-color: transparent;
+}
+
+.save-button {
+  width: fit-content;
   gap: 8px;
-  margin-inline: auto;
-  margin-block-start: 50px;
   margin-block-end: 100px;
   padding: 15px 20px;
-  cursor: pointer;
+  margin-inline: auto;
+}
+
+.dialog__button {
+  width: 100%;
+  padding-block: 9px;
+  margin-inline: auto;
 }
 
 .save-button__icon {
@@ -185,8 +185,12 @@
   mix-blend-mode: difference;
 }
 
-.card__like-button::before,
-.save-button::before {
+.button:focus-visible {
+  outline: none;
+  box-shadow: 2px 2px 0 var(--accent-color);
+}
+
+.button::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -196,8 +200,7 @@
   transition: transform 0.5s ease-in-out;
 }
 
-.card__like-button:hover::before,
-.save-button:hover::before {
+.button:hover::before {
   transform: scaleX(1);
 }
 
@@ -209,12 +212,16 @@
   mix-blend-mode: difference;
 }
 
+.button__confirm {
+  text-transform: uppercase;
+}
+
 .dialog {
   font-family: var(--font-accent);
   text-transform: uppercase;
   display: none;
-  width: 353px;
-  height: 191px;
+  max-width: 353px;
+  width: 100%;
   padding: 30px;
   border: 2px solid var(--accent-color);
   background-color: var(--card-bg-color);
@@ -235,25 +242,6 @@
   line-height: 150%;
 }
 
-.dialog__button {
-  font-family: var(--font-accent);
-  font-size: 14px;
-  background-color: var(--card-bg-color);
-  border: var(--card-outline);
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-inline: auto;
-  padding-block: 9px;
-  transition: box-shadow 0.3s ease;
-}
-
-.dialog__button:focus-visible {
-  outline: none;
-  box-shadow: 2px 2px 0 var(--accent-color);
-}
-
 .dialog__icon {
   width: 39px;
   height: 39px;
@@ -263,31 +251,31 @@
   background-color: var(--backdrop-color);
 }
 
-.card:nth-of-type(2) .card__image {
+.darken-brown-filter {
   filter: grayscale(35%) sepia(25%) saturate(55%) brightness(82%);
 }
 
-.card:nth-of-type(3) .card__image {
+.saturate-filter {
   filter: saturate(500%);
 }
 
-.card:nth-of-type(4) .card__image {
+.saturate-contrast-filter {
   filter: saturate(140%) brightness(72%) contrast(110%);
 }
 
-.card:nth-of-type(5) .card__image {
+.negative-filter {
   filter: invert(80%);
 }
 
-.card:nth-of-type(6) .card__image {
+.sepia-filter {
   filter: sepia(100%);
 }
 
-.card:nth-of-type(7) .card__image {
+.blur-filter {
   filter: blur(20px);
 }
 
-.card:nth-of-type(8) .card__image {
+.green-blur-filter {
   filter: hue-rotate(90deg) brightness(120%) contrast(50%) blur(2px);
 }
 
@@ -364,4 +352,7 @@
   .save-button {
     flex-direction: column;
   }
+  .save-button__icon {
+  width: 28px;
+  height: 28px;
 }
