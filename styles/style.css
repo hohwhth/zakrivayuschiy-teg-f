@@ -61,9 +61,6 @@
 
 .card__image-container {
   border-block: var(--card-outline);
-}
-
-.card__image-container {
   position: relative;
 }
 
@@ -75,13 +72,23 @@
   font-family: var(--font-accent);
   font-size: 14px;
   color: var(--accent-color);
-  -webkit-text-stroke: 0.2px var(--main-color);
   text-shadow:
     -1px -1px 0 var(--main-color),
     1px -1px 0 var(--main-color),
     -1px 1px 0 var(--main-color),
     1px 1px 0 var(--main-color);
   opacity: 0.5;
+}
+
+@supports (
+  (-webkit-text-stroke: 1px var(--main-color)) or
+    (text-stroke: 1px var(--main-color))
+) {
+  .card__label {
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--main-color);
+    text-stroke: 1px var(--main-color);
+  }
 }
 
 .card__image {
@@ -126,12 +133,6 @@
 
 .card__icon-button:focus-visible {
   border-color: var(--accent-color);
-}
-
-.like-icon {
-  display: block;
-  width: 39px;
-  height: 36px;
 }
 
 .card__like-button {
@@ -296,6 +297,9 @@
 
 .like-icon {
   transform-origin: center;
+  display: block;
+  width: 39px;
+  height: 36px;
 }
 
 .contour {
